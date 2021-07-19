@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , Component } from 'react'
+
 
 export default function Whether() {
   
         const [city, setCity] = useState(null);
+        const [weather,setweather] = useState(null);
         const [search, setSearch] = useState("Kolkata");
         const apikey=`e5963286fcbaf52a6af29f6b17a29eba`
         useEffect(() => {
@@ -11,6 +13,8 @@ export default function Whether() {
                 const response = await fetch(url);
                 const resJSON = await response.json();
                 setCity(resJSON.main)
+                setweather(resJSON.whether)
+                console.log(resJSON.whether)
 
             }
 
@@ -24,7 +28,7 @@ export default function Whether() {
     return (
         <React.Fragment>
             <nav>
-                <div className="nav-wrapper">
+                <div className="nav-wrapper blue">
                     <form>
                         <div className="input-field">
                             <input type="search" placeholder="Enter City Name" onChange={(event)=>{setSearch(event.target.value)}} />
@@ -37,7 +41,7 @@ export default function Whether() {
 
 
             <div className="row">
-                <div className="col xl4 l4 m3 s1">1</div>
+                <div className="col xl4 l4 m3 s1"></div>
                 <div className="col center card xl4 l4 m6 s10">
                   {!city ?(
                       <p>No Data Found</p>
@@ -60,7 +64,7 @@ export default function Whether() {
                    
                     
                 </div>
-                <div className="col xl4 l4 m3 s1">3</div>
+                <div className="col xl4 l4 m3 s1"></div>
 
             </div>
         </React.Fragment>
