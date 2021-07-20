@@ -6,7 +6,7 @@ export default function Whether() {
         const [city, setCity] = useState(null);
         const [weather,setweather] = useState(null);
         const [search, setSearch] = useState("Kolkata");
-        const apikey=`e5963286fcbaf52a6af29f6b17a29eba`
+        const apikey="Open Api Key"
         useEffect(() => {
             const fetchApi = async () => {
                 const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${apikey}`
